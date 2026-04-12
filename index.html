@@ -182,7 +182,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 <script>
 const GH_API='https://api.github.com',GH_RAW='https://raw.githubusercontent.com';
 const REPO='arun6a/sz-drive',BRANCH='main';
-const _TK=atob('Z2hwX0Y2WGpSbGt5SlpZNG1FcWZMeWNxdHlvUnlMTEVFMFhJSENL');
+const _TK=(window.GITHUB_TOKEN&&window.GITHUB_TOKEN.length>10)?window.GITHUB_TOKEN:localStorage.getItem('gh_token')||prompt('Enter your GitHub Personal Access Token:','ghp_');if(_TK&&_TK.length>10)localStorage.setItem('gh_token',_TK);
 let currentPath='',currentFiles=[],viewMode=localStorage.getItem('viewMode')||'grid',sortBy=localStorage.getItem('sortBy')||'name',selectedFiles=new Set(),actionTarget=null,isSearchActive=false,searchResults=[];
 
 function ghH(){return{'Accept':'application/vnd.github.v3+json','Content-Type':'application/json','Authorization':'token '+_TK};}
